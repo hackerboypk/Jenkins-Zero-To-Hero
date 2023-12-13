@@ -19,16 +19,9 @@ pipeline {
         sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn clean package'
       }
     }
-stage('SonarQube Analysis') {
-            steps {
-                script {
-                    docker.image('sonarqube:latest').run('-d -p 9000:9000 -p 9092:9092 --name sonarqube')
-                }
-            }
-        }
   stage('Static Code Analysis') {
       environment {
-        SONAR_URL = "http://54.226.174.63:9000/"
+        SONAR_URL = "http://44.202.235.123:9000/"
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
