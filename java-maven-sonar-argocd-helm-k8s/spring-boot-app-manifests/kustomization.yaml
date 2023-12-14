@@ -4,5 +4,5 @@ metadata:
   name: fluxcdkustomization
   namespace: fluxcd
 resources:
-- deployment.yaml
-- service.yaml
+- deployment.yml
+- service.yml
